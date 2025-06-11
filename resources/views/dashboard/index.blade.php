@@ -233,7 +233,6 @@ Highcharts.chart('container-pertahun', {
         }
     ]
 });
-
 </script>
 
 @endsection

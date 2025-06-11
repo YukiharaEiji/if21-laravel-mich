@@ -1,6 +1,7 @@
+
 @extends('main')
 
-@section('title', 'matakuliah
+@section('title', 'Mata Kuliah')
 @section('content')
     <!--begin::Row-->
     <div class="row">
@@ -8,7 +9,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-            <h3 class="card-title">matakuliah</h3>
+            <h3 class="card-title">Mata Kuliah</h3>
             <div class="card-tools">
                 <button
                 type="button"
@@ -30,27 +31,23 @@
             </div>
             </div>
             <div class="card-body">
-                <a href="{{ route('prodi.create') }}" class="btn btn-sm btn-primary"><i class="bi bi-file-earmark-plus-fill"></i> Tambah</a>
+                <a href="{{ route('mataKuliah.create') }}" class="btn btn-sm btn-primary"><i class="bi bi-file-earmark-plus-fill"></i> Tambah</a>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Nama matakuliah</th>
-                            <th>Kaprodi</th>
-                            <th>Sekretaris</th>
-                            <th>Nama sesi</th>
+                            <th>Kode Mata Kuliah</th>
+                            <th>Nama Mata Kuliah</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($prodi as $item)
+                        @foreach ($mataKuliah as $item)
                         <tr>
+                            <td>{{ $item->kode_mk }}</td>
                             <td>{{ $item->nama }}</td>
-                            <td>{{ $item->kaprodi }}</td>
-                            <td>{{ $item->sekretaris }}</td>
-                            <td>{{ $item->fakultas->nama }}</td>
                             <td>
-                                <a href="{{ route('prodi.edit', $item->id) }}" class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></a>
-                                <form method="POST" action="{{ route('prodi.destroy', $item->id) }}" class="d-inline">
+                                <a href="{{ route('mataKuliah.edit', $item->id) }}" class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></a>
+                                <form method="POST" action="{{ route('mataKuliah.destroy', $item->id) }}" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger btn-rounded show_confirm"

@@ -1,3 +1,4 @@
+
 @extends('main')
 
 @section('title', 'Mahasiswa')
@@ -37,19 +38,19 @@
                             <th>#</th>
                             <th>NPM</th>
                             <th>Nama</th>
-                            <th>matakuliah</th>
-                            <th>sesi</th>
+                            <th>Program Studi</th>
+                            <th>Fakultas</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($mahasiswa as $item)
                         <tr>
-                            <td><img src=" {{ asset('storage/images/'. $item->foto)  }}" width="80px" /></td>
+                             <td><img src=" {{ $item->foto }}" width="80px" /></td>
                             <td>{{ $item->npm }}</td>
                             <td>{{ $item->nama }}</td>
-                            <td>{{ $item->matakuliah->nama }}</td>
-                            <td>{{ $item->matakuliah->sesi->nama }}</td>
+                            <td>{{ $item->prodi->nama }}</td>
+                            <td>{{ $item->prodi->fakultas->nama }}</td>
                             <td>
                                 <a href="{{ route('mahasiswa.edit', $item->id) }}" class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></a>
                                 <form method="POST" action="{{ route('mahasiswa.destroy', $item->id) }}" class="d-inline">

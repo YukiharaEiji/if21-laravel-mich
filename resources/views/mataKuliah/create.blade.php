@@ -1,34 +1,38 @@
-
 @extends('main')
 
-@section('title', 'Sesi')
+@section('title', 'Mata Kuliah')
 @section('content')
     <!--begin::Row-->
     <div class="row">
         <div class="col-12">
-            {{-- form tambah sesi --}}
+            {{-- form tambah Mata Kuliah --}}
             <div class="card card-primary card-outline mb-4">
                   <!--begin::Header-->
-                  <div class="card-header"><div class="card-title">Form Ubah sesi</div></div>
+                  <div class="card-header"><div class="card-title">Form Tambah Mata Kuliah</div></div>
                   <!--end::Header-->
                   <!--begin::Form-->
-                  <form action="{{ route('sesi.update', $sesi->id) }}" method="POST">
+                  <form action="{{ route('mataKuliah.store') }}" method="POST">
                     @csrf
-                    @method('PUT')
                     <!--begin::Body-->
                     <div class="card-body">
                       <div class="mb-3">
-                        <label for="nama" class="form-label">Nama sesi</label>
-                        <input type="text" class="form-control" name="nama" value="{{ old('nama') ? old('nama') : $sesi->nama }}">
+                        <label for="kode_mk" class="form-label">kode Mata Kuliah</label>
+                        <input type="text" class="form-control" name="kode_mk">
+                      </div>
+                       <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Mata Kuliah</label>
+                        <input type="text" class="form-control" name="nama">
                       </div>
                       <div class="mb-3">
                         <label for="prodi_id" class="form-label">Program Studi</label>
                         <select name="prodi_id" class="form-control">
                           @foreach ($prodi as $item)
-                            <option value="{{ $item->id }}" {{ old('prodi_id') == $item->id? 'selected' : ($dosen->prodi_id == $item->id ? 'selected' : null) }}> {{ $item->nama }} </option>
+                            <option value="{{ $item->id }}" {{old('prodi_id') == $item->id? "selected" : null }}> {{ $item->nama }} </option>
                           @endforeach
                         </select>
-                      </div>
+                        @error('prodi_id')
+                          <div class="text-danger">{{ $message }}</div>
+                        @enderror
                       </div>
                     </div>
                     <!--end::Body-->

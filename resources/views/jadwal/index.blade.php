@@ -1,7 +1,5 @@
-
 @extends('main')
-
-@section('title', 'Sesi')
+@section('title', 'Jadwal')
 @section('content')
     <!--begin::Row-->
     <div class="row">
@@ -9,7 +7,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-            <h3 class="card-title">Sesi</h3>
+            <h3 class="card-title">Jadwal</h3>
             <div class="card-tools">
                 <button
                 type="button"
@@ -31,21 +29,31 @@
             </div>
             </div>
             <div class="card-body">
-                <a href="{{ route('sesi.create') }}" class="btn btn-sm btn-primary"><i class="bi bi-file-earmark-plus-fill"></i> Tambah</a>
+                <a href="{{ route('jadwal.create') }}" class="btn btn-sm btn-primary"><i class="bi bi-file-earmark-plus-fill"></i> Tambah</a>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Nama sesi</th>
-                            <th></th>
+                            <th>Tahun Akademik</th>
+                            <th>kode Semester</th>
+                            <th>Kelas</th>
+                            <th>Mata Kuliah</th>
+                            <th>Dosen</th>
+                            <th>Sesi</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($sesi as $item)
+                        @foreach ($jadwal as $item)
                         <tr>
-                            <td>{{ $item->nama }}</td>
+                            <td>{{ $item->tahun_akademik }}</td>
+                            <td>{{ $item->kode_smt }}</td>
+                            <td>{{ $item->kelas }}</td>
+                            <td>{{ $item->mataKuliah->nama  }}</td>
+                            <td>{{ $item->prodi->dosen->nama }}</td>
+                            <td>{{ $item->prodi->dosen->sesi->nama }}</td>
                             <td>
-                                <a href="{{ route('sesi.edit', $item->id) }}" class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></a>
-                                <form method="POST" action="{{ route('sesi.destroy', $item->id) }}" class="d-inline">
+                                <a href="{{ route('jadwal.edit', $item->id) }}" class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></a>
+                                <form method="POST" action="{{ route('jadwal.destroy', $item->id) }}" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger btn-rounded show_confirm"

@@ -1,25 +1,27 @@
+
 @extends('main')
 
-@section('title', 'Sesi')
+@section('title', 'Mata Kuliah')
 @section('content')
     <!--begin::Row-->
     <div class="row">
         <div class="col-12">
-            {{-- form tambah sesi --}}
+            {{-- form tambah Mata Kuliah --}}
             <div class="card card-primary card-outline mb-4">
                   <!--begin::Header-->
-                  <div class="card-header"><div class="card-title">Form Tambah Sesi</div></div>
+                  <div class="card-header"><div class="card-title">Form Ubah Mata Kuliah</div></div>
                   <!--end::Header-->
                   <!--begin::Form-->
-                  <form action="{{ route('sesi.store') }}" method="POST">
+                  <form action="{{ route('mataKkuliah.update', $sesi->id) }}" method="POST">
                     @csrf
+                    @method('PUT')
                     <!--begin::Body-->
                     <div class="card-body">
                       <div class="mb-3">
-                        <label for="nama" class="form-label">Nama sesi</label>
-                        <input type="text" class="form-control" name="nama">
+                        <label for="nama" class="form-label">kode Mata Kuliah</label>
+                        <input type="text" class="form-control" name="nama" value="{{ old('nama') ? old('nama') : $mataKuliah->nama }}">
                       </div>
-
+                      </div>
                     </div>
                     <!--end::Body-->
                     <!--begin::Footer-->

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Prodi extends Model
 {
     use HasUuids;
-    protected $table = 'prodi';
+    protected $table = 'prodis';
 
     protected $fillable = ['nama', 'singkatan', 'kaprodi', 'sekretaris', 'fakultas_id'];
 
