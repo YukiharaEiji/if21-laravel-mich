@@ -1,17 +1,17 @@
 @extends('main')
 
-@section('title', 'Program Studi')
+@section('title', 'matakuliah')
 @section('content')
     <!--begin::Row-->
     <div class="row">
         <div class="col-12">
-            {{-- form tambah prodi --}}
+            {{-- form tambah matakuliah --}}
             <div class="card card-primary card-outline mb-4">
                   <!--begin::Header-->
-                  <div class="card-header"><div class="card-title">Form Tambah Program Studi</div></div>
+                  <div class="card-header"><div class="card-title">Form Tambah matakuliah</div></div>
                   <!--end::Header-->
                   <!--begin::Form-->
-                  <form action="{{ route('prodi.store') }}" method="POST">
+                  <form action="{{ route('matakuliah.store') }}" method="POST">
                     @csrf
                     <!--begin::Body-->
                     <div class="card-body">
@@ -32,9 +32,9 @@
                         <input type="text" class="form-control" name="sekretaris">
                       </div>
                       <div class="mb-3">
-                        <label for="fakultas_id" class="form-label">Fakultas</label>
-                        <select name="fakultas_id" class="form-control">
-                          @foreach ($fakultas as $item)
+                        <label for="sesi_id" class="form-label">sesi</label>
+                        <select name="sesi_id" class="form-control">
+                          @foreach ($sesi as $item)
                             <option value="{{ $item->id }}"> {{ $item->nama }} </option>
                           @endforeach
                         </select>

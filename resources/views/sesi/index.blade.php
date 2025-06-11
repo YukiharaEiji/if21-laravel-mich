@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', 'Fakultas')
+@section('title', 'sesi')
 @section('content')
     <!--begin::Row-->
     <div class="row">
@@ -8,7 +8,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-            <h3 class="card-title">Fakultas</h3>
+            <h3 class="card-title">sesi</h3>
             <div class="card-tools">
                 <button
                 type="button"
@@ -34,7 +34,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Nama Fakultas</th>
+                            <th>sesi</th>
                             <th>Singkatan</th>
                             <th>Dekan</th>
                             <th>Wakil Dekan</th>
@@ -42,15 +42,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($fakultas as $item)
+                        @foreach ($sesi as $item)
                         <tr>
-                            <td>{{ $item->nama }}</td>
+                            <td>{{ $item->sesi }}</td>
                             <td>{{ $item->singkatan }}</td>
                             <td>{{ $item->nama_dekan }}</td>
                             <td>{{ $item->nama_wadek }}</td>
                             <td>
-                                <a href="{{ route('fakultas.edit', $item->id) }}" class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></a>
-                                <form method="POST" action="{{ route('fakultas.destroy', $item->id) }}" class="d-inline">
+                                <a href="{{ route('sesi.edit', $item->id) }}" class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></a>
+                                <form method="POST" action="{{ route('sesi.destroy', $item->id) }}" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger btn-rounded show_confirm"

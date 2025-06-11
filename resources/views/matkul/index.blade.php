@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', 'Program Studi')
+@section('title', 'matakuliah
 @section('content')
     <!--begin::Row-->
     <div class="row">
@@ -8,7 +8,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-            <h3 class="card-title">Program Studi</h3>
+            <h3 class="card-title">matakuliah</h3>
             <div class="card-tools">
                 <button
                 type="button"
@@ -34,10 +34,10 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Nama Program Studi</th>
+                            <th>Nama matakuliah</th>
                             <th>Kaprodi</th>
                             <th>Sekretaris</th>
-                            <th>Nama Fakultas</th>
+                            <th>Nama sesi</th>
                             <th></th>
                         </tr>
                     </thead>

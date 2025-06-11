@@ -1,14 +1,14 @@
 @extends('main')
 
-@section('title', 'Program Studi')
+@section('title', 'matakuliah')
 @section('content')
     <!--begin::Row-->
     <div class="row">
         <div class="col-12">
-            {{-- form tambah prodi --}}
+            {{-- form tambah matakuliah --}}
             <div class="card card-primary card-outline mb-4">
                   <!--begin::Header-->
-                  <div class="card-header"><div class="card-title">Form Ubah Program Studi</div></div>
+                  <div class="card-header"><div class="card-title">Form Ubah matakuliah</div></div>
                   <!--end::Header-->
                   <!--begin::Form-->
                   <form action="{{ route('prodi.update', $prodi->id) }}" method="POST">
@@ -33,10 +33,10 @@
                         <input type="text" class="form-control" name="sekretaris" value="{{ old('sekretaris') ? old('sekretaris') : $prodi->sekretaris }}">
                       </div>
                       <div class="mb-3">
-                        <label for="fakultas_id" class="form-label">Fakultas</label>
-                        <select name="fakultas_id" class="form-control">
-                          @foreach ($fakultas as $item)
-                            <option value="{{ $item->id }}" {{ old('fakultas_id') == $item->id ? 'selected' : ($prodi->fakultas_id == $item->id ? 'selected' : null) }}> {{ $item->nama }} </option>
+                        <label for="matakuliah_id" class="form-label">matakuliah</label>
+                        <select name="matakuliah_id" class="form-control">
+                          @foreach ($matakuliah as $item)
+                            <option value="{{ $item->id }}" {{ old('matakuliah_id') == $item->id ? 'selected' : ($prodi->matakuliah_id == $item->id ? 'selected' : null) }}> {{ $item->nama }} </option>
                           @endforeach
                         </select>
                       </div>
